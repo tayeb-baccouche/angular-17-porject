@@ -1,26 +1,43 @@
+<div class="container">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="navbar-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-
-<main class="main" style="display: flex; flex-direction: column;
-  align-items: center ; justify-items: center;">
-  <div class="content" >
-  
-    <h1>hello  application</h1>
+  <!-- Main Content -->
+  <div class="content">
+    <img src="../assets/images/icon.jpeg" alt="Logo" class="logo">
+    <h1>Welcome to ILEY'COM</h1>
+    <p>Your solution to innovation and collaboration.</p>
   </div>
-  <div style="display: flex; flex-direction: column;">
-    <div>
-      <span>
-        <p>main texte</p>
-      </span>
+
+  <!-- Additional Main Content -->
+  <main class="main">
+    <div class="text-section">
+      <div class="input-section">
+        <input class="text-input" [(ngModel)]="inputValue" type="text" placeholder="Type here">
+      </div>
+      <div style="margin-top: 5%;" class="button-section">
+        <button class="btn" (click)="processProduct()" [disabled]="loading">Click here to process</button>
+      </div>
     </div>
-    <div style="padding: 5%;">
-        <input class="texte" type="text">
+
+    <!-- Spinner during loading -->
+    <div style="margin-top: 5%;" *ngIf="loading" class="spinner">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">...</span>
+      </div>
     </div>
-    <div style="padding: 5%;">
-        <button class="btn" (click)="processProduct()">click here to process</button>
+
+    <!-- Show response message -->
+    <div style="margin-top: 5%; color: #4CAF50;"  *ngIf="responseMessage">
+      <p style=" color: #4CAF50;">{{ responseMessage }}</p>
     </div>
-  </div>
-  
-</main>
 
 
-<router-outlet />
+  </main>
+</div>
