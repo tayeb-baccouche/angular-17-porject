@@ -14,6 +14,7 @@ export class ProductService {
 
   // Method to get product data by ID
   getProductById(productId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl+'/products/'}${productId}`);
+    return this.http.post(`${this.apiUrl+'/process_product/'}${productId}`, {});
+
   }
 }
